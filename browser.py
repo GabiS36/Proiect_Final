@@ -5,10 +5,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 class Browser(unittest.TestCase):
-    # instantiate chrome
     s = Service(ChromeDriverManager().install())
     chrome = webdriver.Chrome(service=s)
-# chrome = webdriver.Chrome(executable_path=ChromeDriverManager().install()) nu mai merge - solution mai sus
     chrome.implicitly_wait(10)
     chrome.maximize_window()
 

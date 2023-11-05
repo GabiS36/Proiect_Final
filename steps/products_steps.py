@@ -15,6 +15,3 @@ def step_impl(context):
 @then('Products: the user should see detailed information about the selected product')
 def step_impl(context):
     context.products_page_object.product_has_info()
-
-
-

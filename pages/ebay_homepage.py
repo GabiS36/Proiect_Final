@@ -19,7 +19,6 @@ class Home_page(Base_page):
     CART_ICON_DIALOG_MESSAGE = (By.XPATH, '//span[text()="Time to start shopping!"]')
     GUEST_ID = (By.CLASS_NAME, "gh-ug-guest")
     PRODUCT = (By.CLASS_NAME, 'class="s-item__title"')
-    # CART_ICON_HEADER = (By.CLASS_NAME, "gh-cart-icon")
 
     def navigate_to_homepage(self):
         self.chrome.get(self.HOMEPAGE_URL)

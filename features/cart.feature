@@ -14,14 +14,5 @@ Feature: Ebay cart feature
    When Home page: I click the cart icon in the header
    Then Cart: I verify the cart page URL is correct
 
-# @cart3:
-#   Scenario: Test the empty cart
-#   When Cart: I am on the empty cart page
-#   Then Cart: I verify the empty cart message is displayed
-#
-# @cart3
-# Scenario: Test cart remove product functionality
-#   When Cart: I click Remove link
-#   Then Cart: I verify empty cart message is displayed
 
 

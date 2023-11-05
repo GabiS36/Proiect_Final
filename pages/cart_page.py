@@ -7,7 +7,6 @@ class Cart_page(Base_page):
     EMPTY_CART_MESSAGE = (By.CLASS_NAME, "//span[text()='You don't have any items in your cart.']")
     EMPTY_CART_GUEST = (By.CLASS_NAME, "//span[text()='Have an account? Sign in to see your items.']")
     GO_TO_CHECKOUT_BUTTON = (By.CLASS_NAME, "cart-summary-call-to-action")
-    # CART_PAGE_URL = "https://cart.payments.ebay.com/"
 
     def check_empty_cart_URL(self):
         self.check_page_url('https://cart.payments.ebay.com/')
