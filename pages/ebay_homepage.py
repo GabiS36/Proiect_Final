@@ -1,8 +1,6 @@
 from time import sleep
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-
 from pages.base_page import Base_page
 
 
