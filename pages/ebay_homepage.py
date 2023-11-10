@@ -16,7 +16,7 @@ class Home_page(Base_page):
     CART_ICON_DIALOG_TITLE = (By.XPATH, '//h2[text()="Your cart is empty"]')
     CART_ICON_DIALOG_MESSAGE = (By.XPATH, '//span[text()="Time to start shopping!"]')
     GUEST_ID = (By.CLASS_NAME, "gh-ug-guest")
-    PRODUCT = (By.CLASS_NAME, 'class="s-item__title"')
+    PRODUCT = (By.XPATH, '//*[@id="item1d3df70222"]/div/div[1]/div')
 
     def navigate_to_homepage(self):
         self.chrome.get(self.HOMEPAGE_URL)
@@ -58,9 +58,9 @@ class Home_page(Base_page):
         sleep(3)
 
     def select_products(self):
-        self.select_button(*self.PRODUCT)
+        self.select_product(*self.PRODUCT)
         sleep(3)
 
     def navigate_product_results_url(self):
-        self.chrome.get('https://www.ebay.com/sch/i.html?_nkw=Pampers&_in_kw=3&_sacat=2984')
+        self.chrome.get('https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=pen&_sacat=0')
         sleep(4)

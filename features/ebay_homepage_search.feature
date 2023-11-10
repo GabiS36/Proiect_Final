@@ -28,6 +28,6 @@ Feature: Ebay search functionality
 
 
   Scenario: Test access product from the product results page
-    Given Home page: the user is on the product results page
-    When Home page: the user selects a product
+    When Home page: the user is on the product results page
+    When Home page: the user selects a product and a new tab opens
     Then Products: the user should see detailed information about the selected product

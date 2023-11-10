@@ -8,6 +8,7 @@ class Browser(unittest.TestCase):
     s = Service(ChromeDriverManager().install())
     chrome = webdriver.Chrome(service=s)
     chrome.implicitly_wait(10)
+    chrome.set_page_load_timeout(10)
     chrome.maximize_window()
 
     def close(self):

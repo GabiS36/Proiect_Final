@@ -39,11 +39,12 @@ def step_impl(context):
     context.home_page_object.click_cart_icon_header()
 
 
-@given('Home page: the user is on the product results page')
+@when('Home page: the user is on the product results page')
 def step_impl(context):
     context.home_page_object.navigate_product_results_url()
 
 
-@when('Home page: the user selects a product')
+@when('Home page: the user selects a product and a new tab opens')
 def step_impl(context):
     context.home_page_object.select_products()
+    context.home_page_object.switch_tab()

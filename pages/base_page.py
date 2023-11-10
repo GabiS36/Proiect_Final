@@ -42,7 +42,15 @@ class Base_page(Browser):
         product_link = WebDriverWait(self.chrome, 10).until(EC.element_to_be_clickable((by, selector)))
         product_link.click()
 
-
     def has_detailed_information(self, by, selectors):
         product_details = WebDriverWait(self.chrome, 10).until(EC.presence_of_element_located((by, selectors)))
         self.assertTrue(product_details.is_displayed(), 'Product details not displayed')
+
+    def select_product(self, by, selector):
+        product = self.chrome.find_element(by, selector)
+        time.sleep(2)
+        product.click()
+        time.sleep(2)
+
+    def switch_tab(self):
+        self.chrome.switch_to.window(self.chrome.window_handles[-1])
