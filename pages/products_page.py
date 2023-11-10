@@ -5,16 +5,16 @@ from pages.base_page import Base_page
 
 class Products_page(Base_page):
     PDP_BUTTONS = (By.CLASS_NAME, 'vim d-vi-region x-atf-center-river--buybox')
-    PDP_PRODUCT_TITLE = (By.CLASS_NAME, 'x-item-title__mainTitle')
-    ADD_TO_CART = (By.CLASS_NAME, 'vim x-atc-action overlay-placeholder')
-    PDP_URL = "https://www.ebay.com/itm/125593649698?hash=item1d3df70222:g:bjAAAOSwyP5aMhN2&amdata=enc%3AAQAIAAAA0PyAVP4O3%2Bf88DhygF2xC81KBf4fhWjiCu49Hl7vQrDz93xB7SEIYo4HVPl3T7XZGIomw67QkUs3seA81W%2Fi%2BlmWmCG1Py%2FoVNpbfpnASmWcpaJtbSyebzMTqJy09lNHwN8m%2FfHjXhL74ILfVl7KzXekoMwAFzAhAByXdFdv60SyLsbPxD7Qejcd%2BGEQGAoCe%2F10xu4ehkxMBhVgFAZkZyo8ddnnAlD17PrMhcQRMCtToqvCM749L2m5Rr42C3mIFKlKHbVIb1g%2F5sXCD8KHPRI%3D%7Ctkp%3ABFBMkLDGsvZi"
+    PDP_PRODUCT_TITLE = (By.XPATH, '//*[@id="mainContent"]/div[1]/div[1]')
+    ADD_TO_CART = (By.XPATH, '//*[@id="mainContent"]/div[2]/div/div[1]/div[2]/ul/li[2]/div/a/span/span')
+    PDP_URL = 'https://www.ebay.com/itm/126136404933?hash=item1d5e50cbc5:g:qTYAAOSwmlVlKYTL&amdata=enc%3AAQAIAAAA0Arorp1xQmfIbg4yo4s8tUpSfo3Mghlsr%2BSYnKDk%2B%2FqfMQscMMZ48LJbsIAe%2BoPP6uuKmyp5X1ev%2By8%2Fm5vn0HRfdrl%2Bney73qNiSFYPTTa2F3%2F9uVVtjOjjCHM0Jb7jHUGVb9J%2FoVFKrOtlYocOIx2vBVG65JMYTLRHEu353%2By%2Ft5qB72IxfytK0bH89e0Jd6uaqDVKbTvMN%2F%2FwvYPR7jFcIXsj7MgIesHJyHEyxWnUo9QwhrEhQV6nMC8CE5oGM%2B0hhaWenAlj9HRqVFDGudU%3D%7Ctkp%3ABFBMurOxhPdi'
 
     def product_has_info(self):
-        self.chrome.has_detailed_information(*self.PDP_BUTTONS, *self.PDP_PRODUCT_TITLE)
+        self.chrome.has_detailed_information(*self.PDP_PRODUCT_TITLE)
         sleep(2)
 
     def add_to_cart(self):
-        self.chrome.select_button(*self.ADD_TO_CART).click()
+        self.chrome.select_button(*self.ADD_TO_CART)
         sleep(2)
 
     def go_to_pdp(self):
