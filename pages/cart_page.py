@@ -6,14 +6,14 @@ class Cart_page(Base_page):
     CART_PAGE_TITLE = (By.CLASS_NAME, "main-title font-title-1")
     EMPTY_CART_MESSAGE = (By.CLASS_NAME, "//span[text()='You don't have any items in your cart.']")
     EMPTY_CART_GUEST = (By.CLASS_NAME, "//span[text()='Have an account? Sign in to see your items.']")
-    GO_TO_CHECKOUT_BUTTON = (By.CLASS_NAME, "cart-summary-call-to-action")
+    GO_TO_CHECKOUT_BUTTON = (By.XPATH, "//*[@id='mainContent']/div/div[3]/div[2]/div/div[1]/button")
 
     def check_empty_cart_URL(self):
         self.check_page_url('https://cart.payments.ebay.com/')
 
     def check_product_in_cart(self):
-        prod_in_cart = self.wait_for_elem_by_selector(*self.GO_TO_CHECKOUT_BUTTON)
-        self.assertTrue(prod_in_cart.is_display(), 'Product not in cart')
+        self.has_detailed_information(*self.GO_TO_CHECKOUT_BUTTON)
+
 
 
 

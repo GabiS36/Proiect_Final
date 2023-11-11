@@ -1,5 +1,4 @@
 import time
-
 from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -37,12 +36,13 @@ class Base_page(Browser):
         WebDriverWait(self.chrome, 5).until(EC.presence_of_element_located((by, selector)))
 
     def wait_and_click_element_by_selector(self, by, selector):
-        WebDriverWait(self.chrome, 5).until(EC.presence_of_element_located((by, selector)))
-        self.chrome.find_element(by, selector).click()
-
-    def select_button(self, by, selector):
-        product_link = WebDriverWait(self.chrome, 10).until(EC.element_to_be_clickable((by, selector)))
-        product_link.click()
+        print(f"Waiting for element using {by} and {selector}")
+        WebDriverWait(self.chrome, 10).until(EC.presence_of_element_located((by, selector)))
+        element = self.chrome.find_element(by, selector)
+        if not element.is_displayed():
+            print("Element is not displayed.")
+        time.sleep(2)
+        element.click()
 
     def has_detailed_information(self, by, selector):
         product_details = WebDriverWait(self.chrome, 5).until(EC.presence_of_element_located((by, selector)))
