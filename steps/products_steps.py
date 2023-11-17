@@ -4,6 +4,7 @@ from behave import *
 @given('Products: the user is on the product details page')
 def step_impl(context):
     context.products_object.go_to_pdp()
+    context.products_object.accept_cookies()
 
 
 @when('Products: the user clicks on the "Add to Cart" button')

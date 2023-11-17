@@ -9,7 +9,6 @@ from browser import Browser
 
 class Base_page(Browser):
     COOKIES_BUTTON = (By.ID, "gdpr-banner-accept")
-    EMPTY_CART_MESSAGE = ("You don't have any items in your cart.")
 
     def accept_cookies(self):
         try:
@@ -58,3 +57,7 @@ class Base_page(Browser):
 
     def switch_tab(self):
         self.chrome.switch_to.window(self.chrome.window_handles[1])
+
+    def click_link(self, by, selector):
+        link_element = WebDriverWait(self.chrome, 15).until(EC.element_to_be_clickable((by, selector)))
+        link_element.click()

@@ -4,7 +4,6 @@ from pages.base_page import Base_page
 
 
 class Advanced_search_page(Base_page):
-
     ENTER_KEYWORDS_OR_ITEM_NUMBER = (By.XPATH, '//*[@id="_nkw"]')
     KEYWORD_OPTIONS = (By.ID, "s0-1-17-4[0]-7[1]-_in_kw")
     SEARCH_CATEGORY = (By.ID, "s0-1-17-4[0]-7[3]-_sacat")
@@ -23,6 +22,3 @@ class Advanced_search_page(Base_page):
 
     def click_search_button(self):
         self.chrome.find_element(*self.SEARCH_BUTTON).click()
-
-
-

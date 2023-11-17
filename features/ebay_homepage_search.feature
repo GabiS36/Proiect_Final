@@ -3,7 +3,7 @@ Feature: Ebay search functionality
   Background:
     Given Home page: I am a user on ebay home page
 
-  @search1
+  @test4 @test5
   Scenario Outline: Test simple search functionality
     When Home page: I search for "<query>" from category "<category_name>"
     Then Home page: I have at least "<no_of_results>" results returned
@@ -13,7 +13,7 @@ Feature: Ebay search functionality
     |iphone      |Cell Phones & Accessories  |1000         |
     |TV          |Consumer Electronics       |10000        |
 
-  @search2
+  @test6
   Scenario Outline: Test advanced search functionality
     When Home page: I click on the advanced link
     When Advanced search page: I type Pampers in the enter keyword textbox
@@ -26,7 +26,7 @@ Feature: Ebay search functionality
     |no_of_results|
     |1000         |
 
-
+  @test7
   Scenario: Test access product from the product results page
     When Home page: the user is on the product results page
     When Home page: the user selects a product and a new tab opens

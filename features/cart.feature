@@ -1,18 +1,19 @@
-Feature: Ebay cart feature
+Feature: Ebay cart with products feature
 
   Background:
-    Given Home page: I am a user on ebay home page
+    Given Cart: the user is on the cart page with products added
 
-  @cart1
-  Scenario: Test the empty cart icon dialog
-    When Home page: I hover the cart icon in the header
-    Then Home page: I verify empty cart icon dialog title
+  @test1
+  Scenario:  Test Subtotal is correct
+  Then Cart: I check that the subtotal is correct US $0.99
 
-
- @cart2
- Scenario: Test clicking the cart icon in the header redirects the user to the cart page
-   When Home page: I click the cart icon in the header
-   Then Cart: I verify the cart page URL is correct
+  @test2
+  Scenario: Test cart icon count is correct
+  Then Cart: I check that the cart icon in the header displays the correct number of products: 1
 
 
+  @test3
+  Scenario: Test cart remove product functionality
+  When Cart: I click the Remove link
+  Then Cart: I check the empty cart message
 

@@ -16,7 +16,7 @@ class Home_page(Base_page):
     CART_ICON_DIALOG_TITLE = (By.XPATH, '//h2[text()="Your cart is empty"]')
     CART_ICON_DIALOG_MESSAGE = (By.XPATH, '//span[text()="Time to start shopping!"]')
     GUEST_ID = (By.CLASS_NAME, "gh-ug-guest")
-    PRODUCT = (By.XPATH, '//*[@id="item1d3df70222"]/div/div[1]')
+    PRODUCT = (By.XPATH, '//img[@alt="NEW Black Gel Pen Full Matte Water 0.5 Pens Writing Stationery Supply Office"]')
 
     def navigate_to_homepage(self):
         self.chrome.get(self.HOMEPAGE_URL)
