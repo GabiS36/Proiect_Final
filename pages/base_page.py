@@ -1,5 +1,4 @@
 import time
-from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -49,9 +48,6 @@ class Base_page(Browser):
 
     def select_product(self, by, selector):
         product = self.chrome.find_element(by, selector)
-        errors = [NoSuchElementException, ElementNotInteractableException]
-        wait = WebDriverWait(self.chrome, timeout=2, poll_frequency=.2, ignored_exceptions=errors)
-        wait.until(lambda d: product)
         product.click()
         time.sleep(2)
 

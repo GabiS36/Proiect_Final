@@ -34,9 +34,8 @@ class Cart_page(Base_page):
         self.has_detailed_information(*self.GO_TO_CHECKOUT_BUTTON)
 
     def check_subtotal(self, expected_price):
-        actual_text = self.chrome.find_element(*self.SUBTOTAL_HIGH).text
-        actual_price = actual_text.replace('Item (1)\n', '').strip()
-        self.assertEqual(actual_price, expected_price, "Subtotal is incorrect")
+        actual_text = self.chrome.find_element(*self.SUBTOTAL_HIGH).text.replace('Item (1)\n', '').strip()
+        self.assertEqual(actual_text, expected_price, "Subtotal is incorrect")
 
     def check_icon_count(self, expected_count):
         try:

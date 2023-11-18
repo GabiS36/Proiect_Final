@@ -43,8 +43,7 @@ class Home_page(Base_page):
         self.chrome.find_element(*self.ADVANCED_SEARCH_LINK).click()
 
     def hover_over_cart_icon_header(self):
-        elem = self.chrome.find_element(*self.CART_ICON)
-        self.hover_by_elem(elem)
+        self.hover_by_elem(self.chrome.find_element(*self.CART_ICON))
         sleep(3)
 
     def check_empty_cart_icon_dialog_title(self):
