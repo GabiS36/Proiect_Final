@@ -9,13 +9,10 @@ from pages.base_page import Base_page
 class Cart_page(Base_page):
     CART_PAGE_TITLE = (By.CLASS_NAME, "main-title font-title-1")
     EMPTY_CART_MESSAGE = (By.CLASS_NAME, 'font-title-3')
-    GO_TO_CHECKOUT_BUTTON = (By.XPATH, "//*[@id='mainContent']/div/div[3]/div[2]/div/div[1]/button")
-    QTY_OPTIONS = (By.XPATH, '//*[@id="mainContent"]/div/div[3]/div[1]/div[1]/div/ul/li/div/div/div/div[1]/div/div['
-                             '3]/div/div[1]/div[1]/div/span/span')
-    ADD_TO_CART = (By.XPATH, '//*[@id="mainContent"]/div[2]/div/div[1]/div[2]/ul/li[2]/div/a')
+    GO_TO_CHECKOUT_BUTTON = (By.XPATH, '//*[@id="mainContent"]//div[3]//button[contains(@data-test-id, "cta-top")]')
+    ADD_TO_CART = (By.XPATH, '//*[@id="mainContent"]//ul/li[2]/div/a')
     SUBTOTAL_HIGH = (By. CLASS_NAME, 'cart-summary-line-item')
-    REMOVE_LINK = (By.XPATH, '//*[@id="mainContent"]/div/div[3]/div[1]/div[1]/div/ul/li/div/div/div/div[2]/span['
-                             '2]/button')
+    REMOVE_LINK = (By.XPATH, '//*[@id="mainContent"]//button[contains(@aria-label, "Remove")]')
     ICON_COUNT = (By.ID, "gh-cart-n")
     CART_URL = 'https://cart.payments.ebay.com/'
     PDP_URL = 'https://www.ebay.com/itm/126136404933?hash=item1d5e50cbc5:g:qTYAAOSwmlVlKYTL&amdata=enc' \
