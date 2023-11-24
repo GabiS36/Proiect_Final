@@ -16,15 +16,17 @@ Feature: Ebay search functionality
   @test6
   Scenario Outline: Test advanced search functionality
     When Home page: I click on the advanced link
-    When Advanced search page: I type Pampers in the enter keyword textbox
-    When Advanced search page: I select Exact words, exact order from keyboard options
-    When Advanced search page: I choose Baby from the category list
+    When Advanced search page: I type "<search_term>" in the enter keyword textbox
+    When Advanced search page: I select a keyword option from keyword options
+    When Advanced search page: I choose "<category>" from the category list
     When Advanced search page: I click search button
     Then Home page: I have at least "<no_of_results>" results returned
-
     Examples:
-    |no_of_results|
-    |1000         |
+      |search_term |category                      |no_of_results |
+      |Pampers     |Baby                          |1000          |
+      |Toys        |Dolls & Bears                 |100000        |
+      |Canon       |Cameras & Photo               |10000         |
+      |Apple       |Computers/Tablets & Networking|1000          |
 
   @test7
   Scenario: Test access product from the product results page

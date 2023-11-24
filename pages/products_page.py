@@ -1,8 +1,5 @@
-from time import sleep
-
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
-
 from pages.base_page import Base_page
 
 
@@ -17,7 +14,6 @@ class Products_page(Base_page):
 
     def product_has_info(self):
         self.has_detailed_information(*self.PDP_PRODUCT_TITLE)
-        sleep(2)
 
     def add_to_cart(self):
         try:
@@ -26,8 +22,6 @@ class Products_page(Base_page):
             print(f"TimeoutException: {e}")
             print(f"Failed to click 'Add to Cart' button within the specified timeout.")
             raise
-        sleep(2)
 
     def go_to_pdp(self):
         self.chrome.get(self.PDP_URL)
-        sleep(2)

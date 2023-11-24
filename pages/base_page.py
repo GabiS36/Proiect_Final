@@ -1,4 +1,3 @@
-import time
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -17,21 +16,15 @@ class Base_page(Browser):
 
     def check_element_is_displayed(self, by, selector):
         element = self.chrome.find_element(by, selector)
-        time.sleep(3)
         self.assertTrue(element.is_displayed(), 'Element not displayed')
-        time.sleep(3)
 
     def hover_by_elem(self, elem):
         actions = ActionChains(self.chrome).move_to_element(elem)
         actions.perform()
-        time.sleep(3)
 
     def check_page_url(self, expected_url):
         actual = self.chrome.current_url
         self.assertEqual(expected_url, actual, 'URL is incorrect')
-
-    def wait_for_elem_by_selector(self, by, selector):
-        WebDriverWait(self.chrome, 5).until(EC.presence_of_element_located((by, selector)))
 
     def wait_and_click_element_by_selector(self, by, selector):
         print(f"Waiting for element using {by} and {selector}")
@@ -39,7 +32,6 @@ class Base_page(Browser):
         element = self.chrome.find_element(by, selector)
         if not element.is_displayed():
             print("Element is not displayed.")
-        time.sleep(2)
         element.click()
 
     def has_detailed_information(self, by, selector):
@@ -49,7 +41,6 @@ class Base_page(Browser):
     def select_product(self, by, selector):
         product = self.chrome.find_element(by, selector)
         product.click()
-        time.sleep(2)
 
     def switch_tab(self):
         self.chrome.switch_to.window(self.chrome.window_handles[1])

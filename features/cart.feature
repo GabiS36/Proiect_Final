@@ -11,9 +11,9 @@ Feature: Ebay cart with products feature
   Scenario: Test cart icon count is correct
   Then Cart: I check that the cart icon in the header displays the correct number of products: 1
 
-
   @test3
   Scenario: Test cart remove product functionality
   When Cart: I click the Remove link
   Then Cart: I check the empty cart message
+
 

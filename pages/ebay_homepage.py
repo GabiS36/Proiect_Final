@@ -1,4 +1,3 @@
-from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from pages.base_page import Base_page
@@ -23,12 +22,10 @@ class Home_page(Base_page):
 
     def insert_search_value(self, query):
         self.chrome.find_element(*self.SEARCH_BOX).send_keys(query)
-        sleep(1)
 
     def choose_category(self, category_name):
         category_dropdown = Select(self.chrome.find_element(*self.SEARCH_CATEGORIES))
         category_dropdown.select_by_visible_text(category_name)
-        sleep(1)
 
     def click_search_button(self):
         self.chrome.find_element(*self.SEARCH_BUTTON).click()
@@ -44,7 +41,6 @@ class Home_page(Base_page):
 
     def hover_over_cart_icon_header(self):
         self.hover_by_elem(self.chrome.find_element(*self.CART_ICON))
-        sleep(3)
 
     def check_empty_cart_icon_dialog_title(self):
         self.chrome.find_element(*self.CART_ICON_DIALOG_TITLE)
@@ -54,12 +50,10 @@ class Home_page(Base_page):
 
     def check_guest(self):
         self.check_element_is_displayed(*self.GUEST_ID)
-        sleep(3)
 
     def select_products(self):
         self.select_product(*self.PRODUCT)
-        sleep(3)
 
     def navigate_product_results_url(self):
         self.chrome.get('https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=pen&_sacat=0')
-        sleep(4)
+

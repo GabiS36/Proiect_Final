@@ -36,3 +36,5 @@ def step_impl(context):
 @then('Cart: I check the empty cart message')
 def step_impl(context):
     context.cart_object.check_empty_cart_message()
+
+

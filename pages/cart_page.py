@@ -1,4 +1,3 @@
-from time import sleep
 from selenium.common import TimeoutException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,7 +10,7 @@ class Cart_page(Base_page):
     EMPTY_CART_MESSAGE = (By.CLASS_NAME, 'font-title-3')
     GO_TO_CHECKOUT_BUTTON = (By.XPATH, '//*[@id="mainContent"]//div[3]//button[contains(@data-test-id, "cta-top")]')
     ADD_TO_CART = (By.XPATH, '//*[@id="mainContent"]//ul/li[2]/div/a')
-    SUBTOTAL_HIGH = (By. CLASS_NAME, 'cart-summary-line-item')
+    SUBTOTAL = (By.CLASS_NAME, 'cart-summary-line-item')
     REMOVE_LINK = (By.XPATH, '//*[@id="mainContent"]//button[contains(@aria-label, "Remove")]')
     ICON_COUNT = (By.ID, "gh-cart-n")
     CART_URL = 'https://cart.payments.ebay.com/'
@@ -31,7 +30,7 @@ class Cart_page(Base_page):
         self.has_detailed_information(*self.GO_TO_CHECKOUT_BUTTON)
 
     def check_subtotal(self, expected_price):
-        actual_text = self.chrome.find_element(*self.SUBTOTAL_HIGH).text.replace('Item (1)\n', '').strip()
+        actual_text = self.chrome.find_element(*self.SUBTOTAL).text.replace('Item (1)\n', '').strip()
         self.assertEqual(actual_text, expected_price, "Subtotal is incorrect")
 
     def check_icon_count(self, expected_count):
@@ -54,7 +53,6 @@ class Cart_page(Base_page):
 
     def go_to_pdp(self):
         self.chrome.get(self.PDP_URL)
-        sleep(2)
 
     def add_to_cart(self):
         try:
@@ -62,5 +60,6 @@ class Cart_page(Base_page):
         except TimeoutException as e:
             print(f"TimeoutException: {e}")
             print(f"Failed to click 'Add to Cart' button within the specified timeout.")
-            raise
-        sleep(2)
+
+
+
